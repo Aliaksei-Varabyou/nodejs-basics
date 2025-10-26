@@ -9,7 +9,7 @@ import { fileExists } from '../utils/fileExists.js';
 const calculateHash = async () => {
 
   const filePath = './src/hash/files/fileToCalculateHashFor.txt';
-  if (!fileExists(filePath)) {
+  if (!(await fileExists(filePath))) {
     throw new Error('FS operation failed');
   }
   const reader = createReadStream(filePath);
